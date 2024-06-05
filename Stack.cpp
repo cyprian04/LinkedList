@@ -1,5 +1,29 @@
 #include "Stack.h"
 
+Stack::~Stack()
+{
+	while (currentSize != 0)
+	{
+		if (currentSize == 1) {
+			delete head;
+			head = nullptr;
+		}
+		else if (currentSize > 1){
+			Element* temp = head;
+			Element* current = temp;
+
+			while (temp->element != nullptr) {
+				current = temp;
+				temp = temp->element;
+			}
+			current->DisconnectLast(current);
+			temp = nullptr;
+			current = nullptr;
+		}
+		currentSize--;
+	}
+}
+
 void Stack::Push(int val)
 {
 	if (head == nullptr)

@@ -14,6 +14,7 @@ private:
 	};;
 public:
 	Stack() = default;
+	~Stack();
 	void Push(int val);
 	int Pop();
 	int Size() const;
