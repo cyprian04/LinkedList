@@ -164,20 +164,21 @@ void test10()
 	std::cout << std::endl << "    Test 10 passed!\n";
 }
 
-//void test11()
-//{
-//	Stack s;
-//	s.Push(350);
-//	s.Push(743265);
-//	s.Push(816);
-//	s.Push(21);
-//
-//	const Stack& cs = s;
-//	for (auto& n : cs)
-//		std::cout << n << ", ";
-//
-//	std::cout << std::endl << "    Test 10 passed!\n";
-//}
+void test11()
+{
+	Stack s;
+	s.Push(350);
+	s.Push(743265);
+	s.Push(816);
+	s.Push(21);
+
+	const Stack& cs = s;
+	for (auto& n : cs) {
+		std::cout << n << ", ";
+	}
+
+	std::cout << std::endl << "    Test 10 passed!\n";
+}
 
 int main()
 {
@@ -200,7 +201,7 @@ int main()
 	test8();
 	test9();
 	test10();
-	//test11();
+	test11();
 
 	_CrtDumpMemoryLeaks();
 	system("pause");
