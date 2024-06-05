@@ -37,7 +37,6 @@ void Stack::Push(int val)
 			temp = temp->element;
 		}
 		current->PointToNext(current, new Element(val));
-		current = nullptr;
 	}
 	currentSize++;
 }
@@ -64,8 +63,6 @@ int Stack::Pop()
 
 		val = temp->value;
 		current->DisconnectLast(current);
-		temp = nullptr;
-		current = nullptr;
 
 		currentSize--;
 		return val;
