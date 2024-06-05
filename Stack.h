@@ -13,29 +13,21 @@ private:
 		Element* element = nullptr;
 	};
 private:
+	template <typename Type, typename value_type>
 	class Iterator
 	{
 	public:
-		Iterator(Element* pointer) : pointer(pointer) {};
-		Iterator& operator++() { pointer = pointer->element; return *this; }
-		int& operator*() { return pointer->value; }
+		Iterator(Type* pointer) : pointer(pointer) {};
+		const Iterator& operator++() { pointer = pointer->element; return *this; }
+		value_type& operator*() { return pointer->value; }
 		bool operator==(const Iterator& rhs) { return pointer == rhs.pointer; }
 		bool operator!=(const Iterator& rhs) { return!(pointer == rhs.pointer); }
 	private:
-		Element* pointer = nullptr;
+		Type* pointer = nullptr;
 	};
+	typedef Iterator<Element, int> raw_iterator;
+	typedef Iterator<const Element, const int> const_iterator;
 private:
-	class ConstIterator
-	{
-	public:
-		ConstIterator(const Element* pointer) : pointer(pointer) {};
-		const ConstIterator& operator++() { pointer = pointer->element; return *this; }
-		const int& operator*() { return pointer->value; }
-		bool operator==(const ConstIterator& rhs) { return pointer == rhs.pointer; }
-		bool operator!=(const ConstIterator& rhs) { return!(pointer == rhs.pointer); }
-	private:
-		const Element* pointer = nullptr;
-	};
 public:
 	Stack() = default;
 	Stack(const Stack& source);
@@ -45,21 +37,21 @@ public:
 	int Pop();
 	int Size() const;
 	bool Empty()const;
-	Iterator begin()
+	raw_iterator begin()
 	{
-		return Iterator(head);
+		return raw_iterator(head);
 	}
-	Iterator end()
+	raw_iterator end()
 	{
-		return Iterator(nullptr);
+		return raw_iterator(nullptr);
 	}
-	ConstIterator begin() const
+	const_iterator begin() const
 	{
-		return ConstIterator(head);
+		return const_iterator(head);
 	}
-	ConstIterator end() const
+	const_iterator end() const
 	{
-		return ConstIterator(nullptr);
+		return const_iterator(nullptr);
 	}
 private:
 	int currentSize = 0;
