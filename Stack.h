@@ -6,7 +6,6 @@ private:
 	{
 	public:
 		Element(int val);
-		~Element();
 		void PointToNext(Element* current, Element* next);
 		void DisconnectLast(Element* current);
 	public:

@@ -88,12 +88,6 @@ Stack::Element::Element(int val)
 	value(val)
 {}
 
-Stack::Element::~Element()
-{
-	delete element;
-	element = nullptr;
-}
-
 void Stack::Element::PointToNext(Element* current, Element* next)
 {
 	current->element = next;
