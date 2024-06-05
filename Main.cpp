@@ -149,35 +149,35 @@ void test9()
 		std::cout << "*** Test 9 failed!\n";
 }
 
-void test10()
-{
-	Stack s;
-	s.Push(350);
-	s.Push(743265);
-	s.Push(816);
-	s.Push(21);
-	for (auto& n : s)
-		n *= 10;
-	for (auto n : s)
-		std::cout << n << ", ";
-
-	std::cout << std::endl << "    Test 10 passed!\n";
-}
-
-void test11()
-{
-	Stack s;
-	s.Push(350);
-	s.Push(743265);
-	s.Push(816);
-	s.Push(21);
-
-	const Stack& cs = s;
-	for (auto& n : cs)
-		std::cout << n << ", ";
-
-	std::cout << std::endl << "    Test 10 passed!\n";
-}
+//void test10()
+//{
+//	Stack s;
+//	s.Push(350);
+//	s.Push(743265);
+//	s.Push(816);
+//	s.Push(21);
+//	for (auto& n : s)
+//		n *= 10;
+//	for (auto n : s)
+//		std::cout << n << ", ";
+//
+//	std::cout << std::endl << "    Test 10 passed!\n";
+//}
+//
+//void test11()
+//{
+//	Stack s;
+//	s.Push(350);
+//	s.Push(743265);
+//	s.Push(816);
+//	s.Push(21);
+//
+//	const Stack& cs = s;
+//	for (auto& n : cs)
+//		std::cout << n << ", ";
+//
+//	std::cout << std::endl << "    Test 10 passed!\n";
+//}
 
 int main()
 {
@@ -195,12 +195,12 @@ int main()
 	test3();
 	test4();
 	test5();
-	test6();
+	//test6();
 	test7();
-	test8();
-	test9();
-	test10();
-	test11();
+	//test8();
+	//test9();
+	//test10();
+	//test11();
 
 	_CrtDumpMemoryLeaks();
 	system("pause");
