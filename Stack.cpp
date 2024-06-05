@@ -31,13 +31,14 @@ int Stack::Pop()
 	else if(currentSize > 1) {
 		Element* temp = head;
 		Element* current = temp;
+
 		while (temp->element != nullptr) {
 			current = temp;
 			temp = temp->element;
 		}
+
 		val = temp->value;
-		temp->value = 0;
-		current->element = nullptr;
+		current->DisconnectLast(current);
 		temp = nullptr;
 		current = nullptr;
 
@@ -62,13 +63,13 @@ Stack::Element::Element(int val)
 	value(val)
 {}
 
-Stack::Element::~Element()
-{
-	delete element;
-	element = nullptr;
-}
-
 void Stack::Element::PointToNext(Element* current, Element* next)
 {
 	current->element = next;
+}
+
+void Stack::Element::DisconnectLast(Element* current)
+{
+	delete current->element;
+	current->element = nullptr;
 }
